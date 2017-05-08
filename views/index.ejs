@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Tech News</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">
+            <p>Home</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <div class="container" style="padding: 70px">
+      <div class="jumbotron">
+        <h1><%= title %></h1>
+      </div>
+      <div class="row" style="display:flex; flex-wrap: wrap;">
+        <% for(i=0; i<dataLe; i++){ %>
+            <div class="col-md-6">
+                  <div class="thumbnail">
+                    <img src= <%= data.articles[i].urlToImage %>>
+                  </div>
+
+                    <div class="caption">
+                      <h2><%= data.articles[i].title %></h2>
+                    </div>
+                    <p><%= data.articles[i].description %></p>
+                    <a href="<%= data.articles[i].url %>">Read more...</a>
+            </div>
+        <% }; %>
+      </div>
+    </div>
+
+
+  </body>
+</html>
