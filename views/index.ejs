@@ -22,24 +22,42 @@
       <div class="jumbotron" style="background-image:  url('https://cdn.pixabay.com/photo/2015/05/23/07/54/board-780321__340.jpg'); background-size:cover;">
         <h1 style="color: white;"><%= title %></h1>
       </div>
-      <div class="row" style="display:flex; flex-wrap: wrap;">
-        <% for(i=0; i<dataLe; i++){ %>
-            <div class="col-md-6">
-                  <div class="thumbnail">
-                    <img src= <%= data.articles[i].urlToImage %>>
-                  </div>
 
-                    <div class="caption">
-                      <h2><%= data.articles[i].title %></h2>
-                    </div>
-                    <p><%= data.articles[i].description %></p>
-                    <a href="<%= data.articles[i].url %>">Read more...</a>
-                    <hr style="display: block; margin-top: 0.5em; margin-bottom: 0.5em; margin-left: auto; margin-right: auto; border-style: inset; border-width: 1px;">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="list-group">
+              <list class="list-group-item"><a href="/a">Ars Technica</a></list>
+              <list class="list-group-item"><a href="/b">Engadget</a></list>
+              <list class="list-group-item"><a href="/c">Hacker News</a></list>
+              <list class="list-group-item"><a href="/d">Recode</a></list>
+              <list class="list-group-item"><a href="/e">TechCrunch</a></list>
+              <list class="list-group-item"><a href="/f">TechRadar</a></list>
+              <list class="list-group-item"><a href="/g">The Next Web</a></list>
+              <list class="list-group-item"><a href="/h">The Verge</a></list>
             </div>
 
-        <% }; %>
+        </div>
+        <div class="class="col-md-9"">
+          <div class="row" style="display:flex; flex-wrap: wrap;">
+            <% for(i=0; i<dataLe; i++){ %>
+                <div class="col-md-6">
+                      <div class="thumbnail">
+                        <img src= <%= data.articles[i].urlToImage %>>
+                      </div>
+
+                        <div class="caption">
+                          <h2><%= data.articles[i].title %></h2>
+                        </div>
+                        <p><%= data.articles[i].description %></p>
+                        <a href="<%= data.articles[i].url %>">Read more...</a>
+                        <hr style="display: block; margin-top: 0.5em; margin-bottom: 0.5em; margin-left: auto; margin-right: auto; border-style: inset; border-width: 1px;">
+                </div>
+
+            <% }; %>
+          </div>
+        </div>
       </div>
-    </div>
+  </div>
 
 
   </body>
