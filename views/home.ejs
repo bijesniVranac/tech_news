@@ -8,11 +8,11 @@
   <body style="background-image:  url('https://cdn.pixabay.com/photo/2016/07/03/18/04/tech-1495181__340.jpg'); background-size:cover;">
       <div class="container">
         <div style="margin: 100px auto; background-image:  url('https://cdn.pixabay.com/photo/2015/03/21/15/47/space-683823__340.jpg'); background-size:cover;" class="jumbotron">
-          <h1 style="color: white">Latest Tech News</h1>
+          <h1 style="color: white">Latest Tech & Science News</h1>
         </div>
         <div class="row">
             <% for(i=0; i<catArray.length; i++){ %>
-              <div class="col-md-3 col-sm-6">
+              <div class="col-sm-6">
                 <a style="width: 90%; margin: 20px" href="/<%= pages[i]%>" class="btn btn-primary btn-warning"><%= catArray[i] %></a>
               </div>
             <% }; %>

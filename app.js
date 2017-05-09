@@ -6,8 +6,8 @@ var app = express();
 app.set("view engine", "ejs");
 app.use(express.static(__dirname +"/public"));
 //const port = process.env.PORT || 3000;
-var catArray=['Ars Technica', 'Engadget', 'Hacker News', 'Recode', 'TechCrunch', 'TechRadar', 'The Next Web', 'The Verge'];
-var pages =['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+var catArray=['Ars Technica', 'Engadget', 'Hacker News', 'Recode', 'TechCrunch', 'TechRadar', 'The Next Web', 'The Verge', 'National Geographic', 'New Scientist'];
+var pages =['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'];
 
 app.get("/", function(req,res){
   res.render('home', {catArray: catArray, pages:pages});
@@ -178,6 +178,95 @@ app.get("/h", function(req,res){
     var dataLe= response.data.articles.length;
     var data= response.data;
     var title='The Verge';
+    res.render('index', {data:data, dataLe: dataLe, title: title});
+}).catch((e)=>{
+  if (e.code === 'ENOTFOUND'){
+    console.log('Unable to connect to API servers');
+    res.render('serverproblem');
+  } else {
+    console.log(e.message);
+  }
+});
+});
+
+app.get("/a", function(req,res){
+  var url='https://newsapi.org/v1/articles?source=ars-technica&sortBy=latest&apiKey=bb6d063981964c6c9015b0ff44586af7'
+  axios.get(url).then((response)=>{
+  if(response.data.status !== "ok"){
+    //throw new Error('Unable to find that address.');
+    console.log('greska');
+    res.render('badadd');
+  }
+    var dataLe= response.data.articles.length;
+    var data= response.data;
+    var title='Ars Technica';
+    res.render('index', {data:data, dataLe: dataLe, title: title});
+}).catch((e)=>{
+  if (e.code === 'ENOTFOUND'){
+    console.log('Unable to connect to API servers');
+    res.render('serverproblem');
+  } else {
+    console.log(e.message);
+  }
+});
+});
+
+app.get("/b", function(req,res){
+  var url=' https://newsapi.org/v1/articles?source=engadget&sortBy=latest&apiKey=bb6d063981964c6c9015b0ff44586af7'
+  axios.get(url).then((response)=>{
+  if(response.data.status !== "ok"){
+    //throw new Error('Unable to find that address.');
+    console.log('greska');
+    res.render('badadd');
+  }
+    var dataLe= response.data.articles.length;
+    var data= response.data;
+    var title='Engadget';
+    res.render('index', {data:data, dataLe: dataLe, title: title});
+}).catch((e)=>{
+  if (e.code === 'ENOTFOUND'){
+    console.log('Unable to connect to API servers');
+    res.render('serverproblem');
+  } else {
+    console.log(e.message);
+  }
+});
+});
+
+
+app.get("/i", function(req,res){
+  var url='https://newsapi.org/v1/articles?source=national-geographic&sortBy=top&apiKey=bb6d063981964c6c9015b0ff44586af7'
+  axios.get(url).then((response)=>{
+  if(response.data.status !== "ok"){
+    //throw new Error('Unable to find that address.');
+    console.log('greska');
+    res.render('badadd');
+  }
+    var dataLe= response.data.articles.length;
+    var data= response.data;
+    var title='National Geographic';
+    res.render('index', {data:data, dataLe: dataLe, title: title});
+}).catch((e)=>{
+  if (e.code === 'ENOTFOUND'){
+    console.log('Unable to connect to API servers');
+    res.render('serverproblem');
+  } else {
+    console.log(e.message);
+  }
+});
+});
+
+app.get("/j", function(req,res){
+  var url='https://newsapi.org/v1/articles?source=new-scientist&sortBy=top&apiKey=bb6d063981964c6c9015b0ff44586af7'
+  axios.get(url).then((response)=>{
+  if(response.data.status !== "ok"){
+    //throw new Error('Unable to find that address.');
+    console.log('greska');
+    res.render('badadd');
+  }
+    var dataLe= response.data.articles.length;
+    var data= response.data;
+    var title='New Scientist';
     res.render('index', {data:data, dataLe: dataLe, title: title});
 }).catch((e)=>{
   if (e.code === 'ENOTFOUND'){
